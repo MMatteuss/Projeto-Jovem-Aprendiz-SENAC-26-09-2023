@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Alunos Cadastrados</title>
+    <!-- Adicione os links para os arquivos Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Lista de Alunos Cadastrados</h1>
+        <button id="btnListarAlunos" class="btn btn-primary">Alunos Cadastrados</button>
+        <div id="listaAlunos" class="mt-4"></div>
+    </div>
+
+    <!-- Adicione os links para os arquivos Bootstrap JS e jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Função para listar alunos cadastrados
+        document.getElementById("btnListarAlunos").addEventListener("click", function () {
+            // Enviar uma solicitação AJAX para o servidor PHP
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "listar_alunos.php", true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    // Manipular a resposta do servidor e exibir no elemento #listaAlunos
+                    document.getElementById("listaAlunos").innerHTML = xhr.responseText;
+                }
+            };
+            xhr.send();
+        });
+    </script>
+</body>
+</html>

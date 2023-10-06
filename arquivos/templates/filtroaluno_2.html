@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <link rel="icon" href="https://www.al.senac.br/wp-content/uploads/2017/08/croppedfavicon-32x32.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <title>PÁGINA INICIAL</title>
+</head>
+<body>
+
+  <style>
+    
+    body {
+  background-color: rgb(0, 117, 223);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header__left img {
+  object-fit: contain;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  justify-content: space-evenly;
+  border-bottom: 0.1px ;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+  background-color: white;
+}
+
+.header__left {
+  display: flex;
+}
+
+.header__right {
+  display: flex;
+}
+
+.header__search {
+  margin-top: 15px;
+  margin-left: 100px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  height: 25px;
+  color: gray;
+  background-color: #eef3f8;
+}
+
+.header__search > input {
+  outline: none;
+  border: none;
+  background: none;
+}
+
+.headerOption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+  color: gray;
+  cursor: pointer;
+}
+
+.headerOption:hover {
+  color: black;
+}
+
+.headerOption h3 {
+  font-size: 12px;
+  margin-top: 10px;
+  font-weight: 400;
+}
+
+.headerOption__icon {
+  margin-right: 5px;
+  height: 20px;
+  width: 20px;
+}
+
+/* Main Body */
+.body__main {
+  display: flex;
+  margin-top: 35px;
+  max-width: 1200px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+/* Sidebar */
+.sidebar {
+  width: 900px;
+  position: sticky;
+  top: 80px;
+  flex: 0.2;
+  border-radius: 10px;
+  text-align: center;
+  height: fit-content;
+}
+
+.sidebar__top > img {
+  margin-bottom: -20px;
+  width: 100%;
+  height: 60px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  object-fit: cover;
+}
+
+.sidebar__top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid lightgray;
+  border-bottom: 0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: white;
+  padding-bottom: 10px;
+}
+
+.sidebar__topAvatar {
+  font-size: 40px;
+}
+
+.sidebar__stats {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid lightgray;
+  background-color: white;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.sidebar__stat {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sidebar__stat > p {
+  color: gray;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.sidebar__statNumber {
+  font-weight: bold;
+  color: #0a66c2 !important;
+}
+
+.sidebar__top > h4 {
+  color: gray;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.sidebar__top > h2 {
+  font-size: 18px;
+}
+
+.sidebar__bottom {
+  text-align: left;
+  padding: 10px;
+  border: 1px solid lightgray;
+  background-color: white;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.sidebar__recentItem {
+  display: flex;
+  font-size: 13px;
+  color: gray;
+  font-weight: bolder;
+  cursor: pointer;
+  margin-bottom: 5px;
+  padding: 5px;
+}
+
+.sidebar__recentItem:hover {
+  background-color: whitesmoke;
+  border-radius: 10px;
+  cursor: pointer;
+  color: black;
+}
+
+.sidebar__hash {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.sidebar__bottom > p {
+  font-size: 14px;
+  padding-bottom: 10px;
+}
+
+/* Feed */
+.feed {
+  flex: 0.6;
+  margin: 0 20px;
+}
+
+.feed__inputContainer {
+  background-color: white;
+  padding: 10px;
+  padding-bottom: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.feed__input {
+  border: 1px solid lightgray;
+  border-radius: 30px;
+  display: flex;
+  padding: 10px;
+  color: gray;
+  padding-left: 15px;
+}
+
+.feed__input > form {
+  display: flex;
+  width: 100%;
+}
+
+.feed__input > form > input {
+  border: none;
+  flex: 1;
+  margin-left: 10px;
+  outline-width: 0;
+  font-weight: 600;
+}
+
+.feed__input > form > button {
+  display: none;
+}
+
+.feed__inputOptions {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.inputOption {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+  color: gray;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.inputOption:hover {
+  background-color: whitesmoke;
+  border-radius: 10px;
+}
+
+.inputOption > h4 {
+  margin-left: 5px;
+}
+
+/* Post */
+.post {
+  background-color: white;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.post__header {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.post__info {
+  margin-left: 100px;
+}
+
+.post__info > p {
+  font-size: 12px;
+  color: gray;
+}
+
+.post__info > h2 {
+  font-size: 15px;
+}
+
+/* widgets */
+.widgets {
+  position: sticky;
+  top: 80px;
+  flex: 0.2;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid lightgray;
+  height: fit-content;
+  padding-bottom: 10px;
+}
+
+.widgets__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.widgets__header > h2 {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.widgets__article {
+  display: flex;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.widgets__article:hover {
+  background-color: whitesmoke;
+}
+
+.widgets__articleLeft {
+  color: #0177b7;
+  margin-right: 5px;
+}
+
+.widgets__articleLeft .material-icons {
+  font-size: 15px;
+}
+
+.widgets__articleRight {
+  flex: 1;
+}
+
+.widgets__articleRight > h4 {
+  font-size: 14px;
+}
+
+.widgets__articleRight > p {
+  font-size: 12px;
+  color: gray;
+}
+
+.feed__inputContainer {
+  background-color: white;
+  padding: 20px;
+  
+  
+  
+}
+
+
+</style>
+
+
+
+
+
+    <!--1° DIV-->
+  <div class="header">
+
+    <form class="ia" action="/filtroaluno" method="post">
+    <div class="header">
+      <img src="../static/img/logo-senac.png" width="80px" style="margin-left: 303px">
+      <div class="header__left">
+        <div class="header__search">
+          <input type="text" name="search_name" placeholder="Nome do aluno">
+          <!-- <input style="width: 300px; margin: 10px;" placeholder="      Nome do aluno"/>  -->
+        </div>
+        
+        <div class="header__search">
+          <input type="text" name="search_professional_area" placeholder="Área profissional">
+          <!-- <input style="width: 300px; margin: 10px;" placeholder="      Area profissional"/> -->
+      </div>
+      <button type="submit" type="button" class="btn btn-primary" style="margin-left: 130px;">Buscar</button>
+    </div>
+  </div>
+</form>
+
+
+
+    <div class="header__right">
+      <div class="headerOption">
+        <button style="border: none; background-color: rgb(255, 255, 255);">
+          <i style="color: rgb(0, 117, 223)" class="material-icons headerOption__icon"> home </i>
+        <a style="color: rgb(0, 117, 223)"  class="nav-link dropdown-" href="/area_senac" aria-expanded="false">
+         
+          Inicio
+        </a>
+      </div>
+    </button>
+
+      <div class="headerOption"> 
+        <button style="border: none; background-color: rgb(255, 255, 255);">
+          <i style="color: rgb(0, 117, 223)" class="material-icons headerOption__icon"> business_center </i>
+        <a style="color: rgb(0, 117, 223)" class="nav-link dropdown-" href="cadempresas.html"aria-expanded="false" > 
+        
+          Vagas
+        </a>
+      </div> 
+    </button>
+    
+    
+      <div class="headerOption">
+        <button style="border: none; background-color: rgb(255, 255, 255);">
+          <i style="color: rgb(0, 117, 223)" class="material-icons headerOption__icon"> notifications </i>
+        <a style="color: rgb(0, 117, 223)" class="nav-link dropdown-" href="acessoempresa.html" aria-expanded="false">
+      
+          Notificações
+        </a>
+        
+      </div>
+    </button>
+
+      <div class="headerOption">
+        <i style="color: black;" class="material-icons headerOption__icon"> account_circle </i>
+        <a style="color: rgb(0, 117, 223)" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Eu
+        </a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="/perfil">Meu Perfil</a></li>
+          <li><a class="dropdown-item" href="#">Meu Curriculo</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="/">SAIR</a></li>
+        </ul>
+      </li>
+      </div>
+      
+      
+     
+      
+
+
+    </div>
+  </div>
+  <!-- Final do Header -->
+
+  <!-- Main Body Starts -->
+  <div class="body__main">
+    <!-- Sidebar Starts -->
+    <div class="sidebar">
+      
+
+     
+
+
+
+
+
+
+
+
+      <!-- Sidebar Ends -->
+      <div class="sidebar__bottom">
+        <p>Vagas em alta</p>
+        <div class="sidebar__recentItem">
+          <span class="sidebar__hash">#</span>
+          <a style="text-decoration: none; color: rgb(128, 128, 128);" href="#"><p>ReactJS</p></a>
+        </div>
+        <div class="sidebar__recentItem">
+          <span class="sidebar__hash">#</span>
+          <a style="text-decoration: none; color: rgb(128, 128, 128);" href="#"><p>Programação</p></a>
+        </div>
+        <div class="sidebar__recentItem">
+          <span class="sidebar__hash">#</span>
+          <a style="text-decoration: none; color: rgb(128, 128, 128);" href="#"><p>Engenharia de Software</p></a>
+        </div>
+        <div class="sidebar__recentItem">
+          <span class="sidebar__hash">#</span>
+          <a style="text-decoration: none; color: rgb(128, 128, 128);" href="#"><p>Design</p></a>
+        </div>
+        <div class="sidebar__recentItem">
+          <span class="sidebar__hash">#</span>
+          <a style="text-decoration: none; color: rgb(128, 128, 128);" href="#"><p>Desenvolvimento Web</p></a>
+        </div>
+      </div>
+    </div>
+    <!-- Sidebar Ends -->
+
+
+
+
+
+
+
+    <!-- Feed Starts -->
+    <div class="feed">
+    <div class="feed__inputContainer">
+        
+
+         <center><h3>Filtragem de alunos</h3></center>
+          
+
+      
+         
+        <br>
+
+        
+
+
+
+        
+
+        
+
+
+
+
+
+
+
+
+
+        <div class="feed__inputOptions">
+          
+        </div>
+      </div>
+
+
+
+
+
+      <script>
+        const escrevaOption = document.querySelector(".inputOption:nth-child(3)"); // Seletor para a opção "ESCREVA..."
+        const feedInput = document.querySelector("#baixo");
+    
+        // Função para buscar e atualizar os dados em tempo real
+        function fetchAndRefreshData() {
+            fetch("/get_content") // Rota para buscar os dados atualizados
+                .then(response => response.json())
+                .then(data => {
+                    // Atualizar a interface com os novos dados (usando JavaScript para manipular o DOM)
+                    console.log("Dados atualizados:", data);
+                    // Atualize a interface conforme necessário
+                })
+                .catch(error => {
+                    console.error("Erro ao buscar dados:", error);
+                });
+        }
+    
+
+
+
+
+        
+        // Configurar uma chamada periódica para buscar e atualizar dados a cada 5 segundos (pode ser ajustado)
+        setInterval(fetchAndRefreshData, 5000); // 5000 ms = 5 segundos
+    
+        escrevaOption.addEventListener("click", function (event) {
+            const input = feedInput.querySelector("input");
+            const newContent = input.value.trim();
+    
+            if (newContent !== "") {
+                fetch("/insert_content", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        new_content: newContent
+                    })
+                    
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Atualizar a lista de conteúdos exibidos (por exemplo, usando JavaScript para manipular o DOM)
+                    console.log(data); // Faça algo com os dados, talvez atualize a interface
+                    input.value = ""; // Limpar o campo de entrada
+                })
+                .catch(error => {
+                    console.error("Erro ao enviar conteúdo:", error);
+                });
+            }
+        });
+        
+        
+    </script>
+      
+
+
+
+      <!-- 2° DIV COM NOME E ÁREA PROFISSIONAL -->
+      <div class="post">
+        <div class="feed__inputOptions">
+          <div class="feed__inputContainer">
+         
+          <table class="table">
+            <caption>Lista de usuários</caption>
+            <thead>
+              <tr>
+                <th scope="col">ID Aluno</th>
+                <th scope="col" style="text-align: center;">Nome</th>
+                <th scope="col" style="text-align: center;">Area Profissional</th>
+                <th scope="col" style="text-align: center;">E-mail</th>
+                <th scope="col" style="text-align: center;">Telefone</th>
+              </tr>
+            </thead>
+            <tbody>
+          <ul>
+            {% for result in results_name %}
+            <tr>
+              <td scope="row">{{ loop.index }}</td>
+              <td style="text-align: center;"><a href="/perfil_selecionado/{{ result[0] }}">{{ result[0] }}</a></td>
+              <td style="text-align: center;">{{ result[1] }}</td>
+              
+            </tr>
+            {% endfor %}
+        </ul>
+        
+
+
+    
+        <ul>
+          {% for result in results_professional_area %}
+          <tr>
+            <td scope="row">{{ loop.index }}</td>
+            <td style="text-align: center;"><a href="/perfil_aluno">{{ result[0] }}</a></td>
+            <td style="text-align: center;">{{ result[1] }}</td>
+            
+          </tr>
+          {% endfor %}
+        </ul>
+
+
+        
+
+
+        
+        </div>
+        </table>
+
+      
+          </div>
+        </div>
+      </div>
+      <!-- LISTA DAS VAGAS CADASTRADAS -->
+
+
+      
+
+      
+
+
+    </div>
+
+
+
+    
+    <!-- Feed Ends -->
+
+    <!-- Widgets Starts -->
+    <div class="widgets">
+      <div class="widgets__header">
+        <h2>Vagas Recentes</h2>
+        <i class="material-icons"> info </i>
+      </div>
+      <div class="widgets__article">
+        <div class="widgets__articleLeft">
+          <i class="material-icons"> fiber_manual_record </i>
+        </div>
+        <div class="widgets__articleRight">
+          <a style="text-decoration: none;"  href="#"><h4>Vaga 1</h4></a>
+          <p>Quantidade de Vagas: 9999</p>
+        </div>
+      </div>
+
+      <div class="widgets__article">
+        <div class="widgets__articleLeft">
+          <i class="material-icons"> fiber_manual_record </i>
+        </div>
+        <div class="widgets__articleRight">
+          <a style="text-decoration: none;"  href="#"><h4>Vaga 2</h4></a>
+          <p>Quantidade de Vagas: 9999</p>
+        </div>
+      </div>
+
+      <div class="widgets__article">
+        <div class="widgets__articleLeft">
+          <i class="material-icons"> fiber_manual_record </i>
+        </div>
+        <div class="widgets__articleRight">
+          <a style="text-decoration: none;" href="#"><h4>Vaga 3</h4></a>
+          <p>Quantidade de Vagas: 9999</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Widgets Ends -->
+  </div>
+  
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

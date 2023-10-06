@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <link rel="icon" href="https://www.al.senac.br/wp-content/uploads/2017/08/croppedfavicon-32x32.png">
+    <title>CADASTRO ALUNO</title>
+</head>
+<body>
+
+    <style>
+        input::-webkit-input-placeholder {
+            color: rgb(0, 117, 223);
+        }
+
+        #submt-btn {
+          transition: .2s ease-in-out;
+        }
+
+        #submt-btn:hover {
+          transform:scale(1.05);
+        }
+    </style>
+
+<style>
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+  }
+</style>
+
+
+
+
+
+    
+    <body style="background-color: rgb(0, 44, 107); font-family: Arial, Helvetica, sans-serif;">
+     <form class="container" method="POST" action="/cadastroaluno_insert" name="cadastroluno_insert">
+        <div class="box" style="width: 800px; height: 865px; margin-top: 45px; margin-left: 250px; background-color: white; border-radius: 20px; box-shadow: 5px 5px 8px black; ">
+            <a href="#"><img src="/static/img/logo-senac.png" width="100px" style="margin-left: 50px; margin-top: 20px;"></a><br>
+            ㅤ
+            <p><b style="color: black; margin-left: 50px;">Área do Jovem Aprendiz</b></p>
+            <p style="color: black; margin-left: 50px;">Seja bem vindo.<br> Faça o Cadastro para acessar o sistema!</p>
+            <br>
+
+              <div style="margin-left: 60px;" class="row g-8 row col-sm-10">
+                <div class="col-md">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingInputGrid" placeholder="." name="NOME">
+                    <label for="floatingInputGrid">Nome</label>
+                  </div>
+                </div>
+                <div class="col-md">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingInputGrid" placeholder="." name="CPF">
+                    <label for="floatingInputGrid">CPF</label>
+                </div>              
+               </div>
+               <br>
+               <br>
+               <div style="margin-top: 15px;" class="col-sm-15">
+                <div class="col-md">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingInputGrid" placeholder="." name="EMAIL">
+                    <label for="floatingInputGrid">Email</label>
+                  </div>
+                  <br>
+                </div>
+
+                <div class="col-md">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingInputGrid" placeholder="." name="senha">
+                    <label for="floatingInputGrid">Senha</label>
+                  </div>
+                  <br>
+                </div>
+
+                <div style="margin-top: 15px;" class="col-sm-15">
+                  <div class="col-md">
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="floatingInputGrid" placeholder="." name="TELEFONE">
+                      <label for="floatingInputGrid">Telefone</label>
+                    </div>
+                    <br>
+                  </div>
+
+
+                <div class="col-md">
+                  <div class="form-floating">
+                    <select class="form-select" id="floatingSelectGrid selectbox" name="ESTADO">
+                      <option onpointercancel="validateSelect" selected hidden>Clique para selecionar</option>
+                      <option value="Acre">Acre</option>
+                      <option value="Alagoas">Alagoas</option>
+                      <option value="Amapá">Amapá</option>
+                      <option value="Amazonas">Amazonas</option>
+                      <option value="Bahia">Bahia</option>
+                      <option value="Ceará">Ceará</option>
+                      <option value="Distrito Federal">Distrito Federal</option>
+                      <option value="Espírito Santo">Espírito Santo</option>
+                      <option value="Goiás">Goiás</option>
+                      <option value="Maranhão">Maranhão</option>
+                      <option value="Mato Grosso">Mato Grosso</option>
+                      <option value="Minas Gerais">Minas Gerais</option>
+                      <option value="Pará">Pará</option>
+                      <option value="Paraíba">Paraíba</option>
+                      <option value="Paraná">Paraná</option>
+                      <option value="Pernambuco">Pernambuco</option>
+                      <option value="Piauí">Piauí</option>
+                      <option value="Rio de Janeiro">Rio de Janeiro</option>
+                      <option value="Rio Grande do Norte">Rio Grande do Norte</option>
+                      <option value="Rio Grande do Sul">Rio Grande do Sul</option>
+                      <option value="Rondônia">Rondônia</option>
+                      <option value="Roraima">Roraima</option>
+                      <option value="Santa Catarina">Santa Catarina</option>
+                      <option value="São Paulo">São Paulo</option>
+                      <option value="Sergipe">Sergipe</option>
+                      <option value="Tocantins">Tocantins</option>
+                    </select>
+                    <label for="floatingSelectGrid">Selecione seu estado</label>
+                  </div>
+                </div>
+
+                <br>
+
+                <div class="col-md">
+                  <div class="form-floating">
+                    <select class="form-select" aria-label="Default select example" id="selectedOption" name="CURSO">
+                      {% for curso in cursos %}
+                        <option value="{{ curso[0] }}">{{ curso[0] }}</option>
+                      {% endfor %}
+                    </select>
+                    <label for="floatingSelectGrid">Selecione seu curso</label>
+                  </div>
+                </div>
+                <br>
+
+                <div class="form-floating">
+                  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px; resize: none;" name="SOBRE"></textarea>
+                  <label for="floatingTextarea2">Sobre você</label>
+                </div>
+                
+                <br>
+
+                <div class="form-floating">
+                  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px; resize: none;" name="EXPERIENCIA"></textarea>
+                  <label for="floatingTextarea2">Suas experiências profissionais</label>
+                </div>
+                <br>
+
+                <center>
+                  <div class="button-container">
+                    <input id="submt-btn" type="submit" value="CADASTRAR" style="border: none; background-color: rgb(0, 117, 223); color: white; padding: 10px; border-radius: 15px; width: 200px;">
+                  
+                    <a href="/voltar" id="submt-btn" type="submit" value="VOLTAR" style="border: none; background-color: rgb(0, 117, 223) ; color: white; padding: 10px; border-radius: 15px; width: 200px;  text-decoration:none; " >VOLTAR</a>
+                    </input>
+                  </div>
+                </center>
+                 
+
+
+
+
+          
+                <br>
+                <a style="text-decoration: none; margin-left: 175px;" href="/index.html">👈ㅤJá tem uma conta? faça o login!</a>
+                
+
+              
+             
+              
+          
+
+              
+
+
+
+        </div>
+
+       
+           
+
+
+
+
+
+
+
+
+
+
+
+
+     </form>
+  
+
+
+
+
+
+
+
+<script src="/scripts/js/Script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

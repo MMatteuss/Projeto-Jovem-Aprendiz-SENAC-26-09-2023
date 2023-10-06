@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Relatório</title>
+</head>
+<body>
+    <h1>Relatório</h1>
+    <img src="caminho_para_a_sua_logo.png" alt="Logo">
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for dado in dados %}
+                <tr>
+                    <td>{{ dado.nome }}</td>
+                    <td>{{ dado.email }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

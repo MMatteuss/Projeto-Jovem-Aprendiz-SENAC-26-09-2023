@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <link rel="icon" href="https://www.al.senac.br/wp-content/uploads/2017/08/croppedfavicon-32x32.png">
+    <title>Àrea profissional</title>
+</head>
+<body>
+
+    <style>
+        input::-webkit-input-placeholder {
+            color: rgb(0, 117, 223);
+        }
+
+        #submt-btn {
+          transition: .2s ease-in-out;
+        }
+
+        #submt-btn:hover {
+          transform:scale(1.05);
+        }
+    </style>
+
+
+    
+    <body style="background-color: rgb(0, 44, 107); background-image: url(/assets/img/celular.png); background-repeat: no-repeat; background-size: 900px;font-family: sans-serif; background-position: 0 -50px">
+     <form class="container" method="POST" action="/cadarea_insert">
+        <div class="box" style="width: 400px; height: 550px; margin-top: 150px; margin-left: 450px; background-color: white; border-radius: 20px; box-shadow: 5px 5px 8px black; ">
+          
+
+          <a href="#"><img src="../static/img/logo-senac.png" width="100px" style="margin-left: 50px; margin-top: 20px;"></a><br>
+            ㅤ
+
+
+            <center>
+            <p></br></br></br><b style="color: black;">CADASTRO DE ÁREA PROFISSIONAL</b></p>
+            </center>
+            <br>
+            <center>
+            <div class="row g-2 row col-sm-10">
+                <div class="col-md">
+                  <div class="form-floating">
+
+
+
+                    
+                  <!--Diminuir o tamanho da barra de texto-->
+                  <div class="form-floating mb-3 md">
+
+                  <!-- ÁREA PROFISSIONAL -->
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="ㅤ" name="nome_area">
+                  <label for="floatingInput">Área profissional</label> 
+
+              
+
+                  </div>
+                  </div>
+
+
+                  </div>
+                  </div>
+
+            
+
+
+
+                
+            </div>
+            <br>
+              
+            </center>
+            <br>
+            <br>
+            <center>
+              <input id="submt-btn" type="submit" value= "CADASTRAR" style="border: none; background-color: rgb(0, 117, 223); color: white; padding: 10px; border-radius: 15px; width: 200px;">
+              <br>
+              <br>
+              <a href="/voltar" id="submt-btn" type="submit" value="VOLTAR" style="border: none; background-color: rgb(0, 117, 223) ; color: white; padding: 10px; border-radius: 15px; width: 200px;  text-decoration:none; " >VOLTAR</a>
+              </center>
+            <br>
+            
+            <br>
+            
+              
+
+
+        </div>     
+
+        
+
+     </form>
+
+
+<script src="scripts/js/Script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

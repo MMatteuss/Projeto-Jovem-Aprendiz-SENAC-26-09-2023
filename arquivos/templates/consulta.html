@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Consulta de Dados</title>
+</head>
+<body>
+    <h1>Consulta de Dados</h1>
+    <form action="/consulta" method="post">
+        <label for="filtro">Filtrar por Nome:</label>
+        <input type="text" id="filtro" name="filtro" required>
+        <button type="submit">Buscar</button>
+    </form>
+
+    {% if result %}
+    <h2>Resultados da Consulta:</h2>
+    <ul>
+        {% for row in result %}
+        <li>Nome: {{ row[0] }}, Email: {{ row[1] }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>Nenhum resultado encontrado.</p>
+    {% endif %}
+</body>
+</html>

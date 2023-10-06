@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+   <html lang="pt-br">
+   <head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+       <link rel="icon" href="https://www.al.senac.br/wp-content/uploads/2017/08/croppedfavicon-32x32.png">
+       <title>CADASTRO DE USUÁRIO</title>
+                
+
+
+</head>
+<body>
+
+      <style>
+
+        * {
+          font-family: Arial, Helvetica, sans-serif;
+        }
+
+         body {
+          background-color: rgb(0, 44, 107);
+         }
+
+         .container {
+          background-color: white;
+          width: 400px;
+          height: 800px;
+          border-radius: 20px;
+          margin-top: 100px;
+          margin-bottom: 100px;
+         }
+
+         #submit-btn {
+          transition: .3s ease-in-out;
+         }
+
+         #submit-btn:hover {
+          transform: scale(1.1);
+         }
+ 
+     </style>
+
+     <div class="container">
+      
+       <center><img src="/static/img/logo-senac-pequeno.png"></center>
+
+        <center><h5 style="margin-top: 90px;">CADASTRO DE USUARIO</h5></center>
+        <br>
+
+      <form action="/usuario" method="POST">
+        <div class="row g-2 row col-sm-12">
+          <div class="col-md">
+            <div class="form-floating">
+              <input type="text" class="form-control" id="floatingInputGrid" placeholder="." name="NOME">
+              <label for="floatingInputGrid">Nome</label>
+            </div>
+          </div>
+        </div>
+
+        
+        <br>
+        <div class="row g-2 row col-sm-12">
+            <div class="col-md">
+              
+              
+              <div class="col-md">
+                  <div class="form-floating">
+                    <select class="form-select" id="floatingSelectGrid selectbox" name="PERFIL">
+                      <option onpointercancel="validateSelect" selected hidden>Selecionar Perfil</option>
+                      <option value="ALUNO">ALUNO</option>
+                      <option value="EMPRESA">EMPRESA</option>
+                      <option value="SENAC">SENAC</option>
+                    </select>
+                    <label for="floatingSelectGrid">Clique para selecionar</label>
+                  </div>
+                </div>
+
+                  <br>
+                  <div class="col-md">
+                      <div class="form-floating">
+                        <input type="text" class="form-control" id="floatingInputGrid" placeholder="." name="CPF">
+                        <label for="floatingInputGrid">CPF ou CNPJ (Empresas)</label>
+                  </div>
+                </div>
+                  <br>
+
+
+                 <div class="col-md">
+                      <div class="form-floating">
+                            <input type="email" class="form-control" id="floatingInputGrid" placeholder="." name="EMAIL">
+                            <label for="floatingInputGrid">E-mail</label>
+                      </div>
+                  </div>
+
+                  <br>
+                  <div class="col-md">
+                    <div class="form-floating">
+                          <input type="password" class="form-control" id="floatingInputGrid" placeholder="." name="SENHA">
+                          <label for="floatingInputGrid">Senha</label>
+                    </div>
+                </div>
+
+
+          </div>
+
+
+
+          <center><input style="margin-top: 50px; border: none; background-color: rgb(0, 44, 107); color: white; padding: 5px 20px; border-radius: 20px;" type="submit" id="submit-btn" value="CADASTRAR"</center>
+      </form>
+     </div>
+
+
+</body>
+</html>

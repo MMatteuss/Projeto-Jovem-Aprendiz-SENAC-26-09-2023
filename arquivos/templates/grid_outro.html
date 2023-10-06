@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Consulta de Dados</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<body>
+    <h1>Consulta de Dados</h1>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <form action="/grid" method="post">
+        <h1>Relatório geral</h1>
+        <button type="submit" name="relatorio">Gerar</button>
+    </form>
+
+
+    <!--
+    {% if result %}
+    <h2>Resultados da Consulta:</h2>
+    <ul>
+        {% for row in result %}
+        <li>Nome: {{ row[0] }}, Algo: {{ row[1] }}, Outro: {{ row[2] }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>Nenhum resultado encontrado.</p>
+    {% endif %}
+-->
+
+
+
+<table class="table caption-top">
+    <caption>List of users</caption>
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Área profissional</th>
+        <th scope="col">Nascimento</th>
+        <th scope="col">Cidade</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Endereço</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% if result %}
+        {% for row in result %}
+          <tr>
+            <th scope="row">{{ loop.index }}</th>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>{{ row[3] }}</td>
+            <td>{{ row[4] }}</td>
+            <td>{{ row[5] }}</td>
+            <td>{{ row[6] }}</td>
+          </tr>
+        {% endfor %}
+      {% else %}
+        <tr>
+          <td colspan="4">Nenhum resultado encontrado.</td>
+        </tr>
+      {% endif %}
+    </tbody>
+  </table>
+  
+  
+
+
+
+
+
+</body>
+</html>
