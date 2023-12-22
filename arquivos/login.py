@@ -454,20 +454,20 @@ def filtroaluno():
     results_name = []           
     results_professional_area = []
     results_email = []
-    results_cidade = []
+    #results_cidade = []
 
     if request.method == 'POST':
         search_name = request.form.get('search_name')
         search_professional_area = request.form.get('search_professional_area')
         search_email = request.form.get('search_email')
-        search_cidade = request.form.get('search_cidade')
+        #search_cidade = request.form.get('search_cidade')
         
         connection = psycopg2.connect(**db_config)
 
         cursor = connection.cursor()
 
         if search_name:
-            cursor.execute("SELECT nome, curso, email, cidade, cpf FROM aluno WHERE nome ILIKE %s", ('%' + search_name + '%',))
+            cursor.execute("SELECT nome, curso, email, cpf FROM aluno WHERE nome ILIKE %s", ('%' + search_name + '%',))
             results_name = cursor.fetchall()
             
         if search_professional_area:
@@ -478,26 +478,26 @@ def filtroaluno():
                 cursor.execute("SELECT email, cidade, cpf FROM aluno WHERE email")
                 results_email = cursor.fetchall()
     
-                if search_cidade:
-                    cursor.execute("SELECT cidade, cpf FROM aluno WHERE cidade")
-                    results_cidade = cursor.fetchall()
+                #if search_cidade:
+                #    cursor.execute("SELECT cidade, cpf FROM aluno WHERE cidade")
+                #    results_cidade = cursor.fetchall()
                 
 
         if search_professional_area:
-            cursor.execute("SELECT nome, curso, email, cidade, cpf FROM aluno WHERE curso ILIKE %s", ('%' + search_professional_area + '%',))
+            cursor.execute("SELECT nome, curso, email, cpf FROM aluno WHERE curso ILIKE %s", ('%' + search_professional_area + '%',))
             results_professional_area = cursor.fetchall()
         
             if search_email:
                 cursor.execute("SELECT email, cidade, cpf FROM aluno WHERE email")
                 results_email = cursor.fetchall()
         
-                if search_cidade:
-                    cursor.execute("SELECT cidade, cpf FROM aluno WHERE cidade")
-                    results_cidade = cursor.fetchall()
+                #if search_cidade:
+                #    cursor.execute("SELECT cidade, cpf FROM aluno WHERE cidade")
+                #    results_cidade = cursor.fetchall()
 
         connection.close() 
 
-    return render_template('filtroaluno_2.html', results_name=results_name, results_professional_area=results_professional_area, results_email=results_email, results_cidade=results_cidade)
+    return render_template('filtroaluno_2.html', results_name=results_name, results_professional_area=results_professional_area, results_email=results_email)
 
 
 
@@ -562,10 +562,6 @@ def perfil_selecionado(nome_usuario):
             resultado_selecionados = cursor.fetchone()
             
     return render_template('perfil.html', resultado_selecionados=resultado_selecionados)
-
-
-
-
 
 if __name__ == "__main__":
     app.run(debug=True, port=8085, host='127.0.0.2')
